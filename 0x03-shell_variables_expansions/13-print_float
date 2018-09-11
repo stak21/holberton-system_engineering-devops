@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%.*f' $NUM 2
+printf '%.*f' 2 $NUM
