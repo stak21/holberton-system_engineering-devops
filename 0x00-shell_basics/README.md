@@ -114,7 +114,7 @@ File|Task
 14-copy_html | Creates a script that copies all HTML files to the parent directory, but only unique ones
 15-lets_move | A script that moves all files beginning with an uppercase letter
 16-clean_emacs | A script that deletes all files with ~
-17-tree | 
+17-tree |  A script that creates the multiple directories inside the previous
 18-commas | A script that lists all files separated by commas, and directories should end with a slash
 holberton.mgc | Work in progress
 
