@@ -97,26 +97,26 @@ This project in the low_level_programming series is about:
 ---
 File|Task
 ---|---
-0-current_working_directory | Write a script that prints the absolute path name of the current working directory.
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
+0-current_working_directory | A script that prints the abs path of the current working directory
+1-listit | A script that displays your current directory
+2-bring_me_home | A script that changes the working directory to the user's home directory
+3-listfiles | A script that displays the current directory in long format
+4-listmorefiles | A script that displays the current directory contents, with hidden files in long format
+5-listfilesdigitonly | A script that displays the current directory contents in long format, user and group ID, hidden files
+6-firstdirectory | A script that creates a directory named holberton inside /tmp/
+7-movethatfile | A script that moves a file called betty from /tmp/ to /tmp/holberton
+8-firstdelete | A script that deletes a file
+9-firstdirdeletion | A script that deletes the directory holberton in /tmp
+10-back | A script that changes the working directory to the previous one
+11-lists | A script that displays all files and hidden files in the ucrrent directory and the parent directory and the /boot directory in long format
+12-file_type | A script that prints the type of the file
+13-symbolic_link | A script that creates a sym link to /bin/ls and names it __ls__
+14-copy_html | Creates a script that copies all HTML files to the parent directory, but only unique ones
+15-lets_move | A script that moves all files beginning with an uppercase letter
+16-clean_emacs | A script that deletes all files with ~
+17-tree | 
+18-commas | A script that lists all files separated by commas, and directories should end with a slash
+holberton.mgc | Work in progress
 
 ## Author
  Shoji Takashima
