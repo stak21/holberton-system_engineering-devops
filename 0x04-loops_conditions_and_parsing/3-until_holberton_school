@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Display Holberton School 10 times with until loop
+START=10
+until [ $START -eq 0 ]; do
+    echo "Holberton School"
+    let START--
+done
