@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#loop through 10 times and print Holberton School, for the 4th and 8th loop do
+#something else
+COUNT=1
+while [ $COUNT -le 10 ] ; do
+    if (( COUNT == 4 )) ; then
+        echo "bad luck"
+    elif (( COUNT == 8 )) ; then
+        echo "good luck"
+    else
+        echo "Holberton School"
+	fi
+	let COUNT++
+done
