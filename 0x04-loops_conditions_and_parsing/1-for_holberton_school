@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#I am itertating a sequence of 1 to 10 and printing Holberton School
 for i in $(seq 1 10); do echo "Holberton School"; done
