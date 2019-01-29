@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#FizzBuzz
+
 COUNT=1
 while [ "$COUNT" -le 100 ] ; do
     if (( COUNT % 15 == 0 )) 
