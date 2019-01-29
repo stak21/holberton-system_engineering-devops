@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#loop through 10 times and print Holberton School, for the 4th and 8th loop do
+#something else
+COUNT=0
+while [ $COUNT -le 20 ] ; do
+	case "$COUNT" in
+	"4")
+        echo "bad luck from China"
+		;;
+	"9")
+        echo "bad luck from Japan"
+		;;
+	"17")
+        echo "bad luck from Italy"
+		;;
+	*)
+		echo "$COUNT"
+		;;
+	esac
+	let COUNT++
+done
