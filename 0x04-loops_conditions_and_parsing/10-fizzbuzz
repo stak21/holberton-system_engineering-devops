@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+COUNT=1
+while [ "$COUNT" -le 100 ] ; do
+    if (( COUNT % 15 == 0 )) 
+        then
+        echo "FizzBuzz"
+    elif (( COUNT % 3 == 0 )) 
+        then
+        echo "Fizz"
+    elif (( COUNT % 5 == 0 )) 
+        then
+        echo "Buzz"
+    else
+        echo "$COUNT"
+    fi
+	let COUNT++
+done
+
+
