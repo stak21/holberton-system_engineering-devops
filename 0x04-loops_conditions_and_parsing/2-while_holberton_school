@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Use the while loop
+end=10
+while [ "$end" -ne 0 ]; do
+	echo "Holberton School"
+	let "end--"
+done
