@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#Display the times of a clock
+HOUR=0
+MINUTES=1
+while [ $HOUR -le 12 ] ; do
+    echo "Hour: $HOUR"
+	let HOUR++
+    while [ $MINUTES -ne 60 ] ; do
+        echo "$MINUTES"
+		let MINUTES++
+	done
+	let MINUTES=1
+done
