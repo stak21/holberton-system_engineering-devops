@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Use the while loop to print holberton school 10 times but the 9th iteration
+END=10
+while [ $END -ne 0 ] ; do
+    echo "Holberton School"
+    if (( END == 2 )) ; then
+        echo "Hi"
+    fi
+	let END--
+done
