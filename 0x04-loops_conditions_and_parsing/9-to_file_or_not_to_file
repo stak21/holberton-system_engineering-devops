@@ -11,7 +11,7 @@ if [ -e "holbertonschool" ]
 	fi
     if [ -f "holbertonschool" ]
 		then
-        echo "file is a regular file"
+        echo "holbertonschool is a regular file"
 	fi
 else
     echo "holbertonschool file does not exist"
