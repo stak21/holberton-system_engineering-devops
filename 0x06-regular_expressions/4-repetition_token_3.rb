@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 
-regex = /hb[^o].*/i
+regex = /hb[^ob].*/i
 arg = ARGV[0]
 arg.scan(regex) do |match|
 	puts match.to_s
