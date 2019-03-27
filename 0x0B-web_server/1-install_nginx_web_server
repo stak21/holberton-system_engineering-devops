@@ -6,4 +6,4 @@ sudo echo "Hoblerton School" | sudo tee /srv/www/index.html &&
 sudo rm -f /etc/nginx/sites-enabled/default &&
 sudo echo -e "server {\n\tlisten 80 default_server;\n\tlisten [::]:80 default_server ipv6only=on;\n\troot /srv/www;\n\t\ index index.html index.htm;\n}" | sudo tee /etc/nginx/sites-available/www &&
 sudo ln -sf /etc/nginx/sites-available/www /etc/nginx/sites-enabled/ &&
-sudo nginx -t && sudo service nginx reload
+sudo nginx -t && sudo service nginx restart
