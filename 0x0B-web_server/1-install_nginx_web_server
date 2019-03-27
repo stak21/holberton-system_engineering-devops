@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Configures a new Ubuntu machine with nginx - perms
+# Configures a new Ubuntu machine with nginx - 
 sudo ssh -o "StrictHostKeyChecking no" -i ~/.ssh/holberton ubuntu@35.237.82.133\
 	'sudo apt-get -y update && sudo apt-get -y install nginx &&
 	sudo mkdir /www &&
