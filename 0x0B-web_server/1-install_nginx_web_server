@@ -2,7 +2,7 @@
 # Configures a new Ubuntu machine with nginx - 
 apt-get -y update && apt-get -y install nginx 
 mkdir -p /srv/www
-echo "Hoblerton School" | sudo tee /srv/www/index.html 
+echo "Holberton School" | sudo tee /srv/www/index.html 
 rm -f /etc/nginx/sites-enabled/default 
 echo -e "server {\n\tlisten 80 default_server;\n\tlisten [::]:80 default_server ipv6only=on;\n\troot /srv/www;\n\tindex index.html index.htm;\n}" | sudo tee /etc/nginx/sites-available/www 
 ln -sf /etc/nginx/sites-available/www /etc/nginx/sites-enabled/ 
