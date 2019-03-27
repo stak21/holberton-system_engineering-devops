@@ -2,10 +2,10 @@
 # Configures a new Ubuntu machine with nginx - 
 sudo ssh -o "StrictHostKeyChecking no" -i ~/.ssh/holberton ubuntu@35.237.82.133\
 	'sudo apt-get -y update && sudo apt-get -y install nginx &&
-	sudo mkdir /www &&
-	sudo echo "Hoblerton School" | sudo tee /www/index.html &&
-	sudo rm /etc/nginx/sites-enabled/default &&
-	sudo echo -e "server {\n\tlisten 80 default_server;\n\tlisten[::]:80
-	default_server ipv7only=on;\n\troot /www;\n\t
+	sudo mkdir -p /srv/www && sudo chmod -R 755 /srv/www &&
+	sudo echo "Hoblerton School" | sudo tee /srv/www/index.html &&
+	sudo rm -f /etc/nginx/sites-enabled/default &&
+	sudo echo -e "server {\n\tlisten 80 default_server;\n\tlisten [::]:80 default_server ipv6only=on;\n\troot /srv/www;\n\t
 	index index.html index.htm;\n}" | sudo tee /etc/nginx/sites-available/www &&
-	sudo ln -s /etc/nginx/sites-available/www /etc/nginx/sites-enabled/'
+	sudo ln -sf /etc/nginx/sites-available/www /etc/nginx/sites-enabled/ &&
+	sudo nginx -t && sudo service nginx reload'
