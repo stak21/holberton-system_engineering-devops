@@ -1,1 +1,3 @@
+#!/usr/bin/env bash
+# Configures a webserver to have a custom heade
 sudo sed -i "6i\    add_header X-Served-by $hostname" /etc/nginx/sites-available/www
