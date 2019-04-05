@@ -1,4 +1,19 @@
 #!/usr/bin/env bash
-# Configures a webserver to have a custom heade
-sudo sed -i "6i\    add_header X-Served-by \$hostname;" /etc/nginx/sites-available/www
-sudo service nginx restart
+# Configures a new Ubuntu machine with nginx - 
+apt-get -y update && apt-get -y install nginx 
+mkdir -p /srv/www
+echo "Holberton School" | sudo tee /srv/www/index.html 
+rm -f /etc/nginx/sites-enabled/default 
+echo -e "
+server {
+	listen 80 default_server;
+	root /srv/www;
+	index index.html index.htm;
+	add_header X-Served-By \$hostname;	
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+}" | sudo tee /etc/nginx/sites-available/www 
+ln -sf /etc/nginx/sites-available/www /etc/nginx/sites-enabled/ 
+sudo nginx -t && sudo service nginx restart
