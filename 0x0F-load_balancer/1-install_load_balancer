@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Configures a new Ubuntu machine with nginx - 
+
+TEXT="frontend front_default\n  bind \*:80\n        mode http\n        \
+default_backend nginx_pool\n\nbackend nginx_pool\n      mode http\n     \
+balance roundrobin\n    server web1 35.237.82.133:80 check\n    \
+server web2 35.196.231.32:80 check"
+
+#Install haproxy ver 1.8
+sudo apt-get -y purge haproxy
+apt-get -y update && apt-get -y install software-properties-common
+add-apt-repository ppa:vbernat/haproxy-1.8
+apt-get -y update && apt-get -y install haproxy=1.8.\*
+
+#configure haproxy
+sudo rm /etc/default/haproxy
+sudo rm /etc/haproxy/haproxy.cfg
+sudo sed -i '8i\ENABLED=1' /etc/default/haproxy
+sed -i "$ a\\$TEXT" /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
+
