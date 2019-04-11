@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Displays information about subdomains
+	for var in "$@"
+	do
+		if [ "$1" != "$var" ]
+		then
+			dig +noall +answer "$var.$1"
+		else
+			echo "first"
+			dig +noall +answer "$var"
+		fi
+	done
+
