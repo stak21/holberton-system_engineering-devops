@@ -3,14 +3,9 @@
 
 	if [ "$#" -eq 1 ]
 	then
-		for i in "$1" "lb-01" "web-01" "web-02"
+		for i in "www" "lb-01" "web-01" "web-02"
 		do
-			if [ "$i" == "$1" ]
-			then
-				string=$(dig +noall +answer "$1")
-			else
-				string=$(dig +noall +answer "$i.$1")
-			fi
+			string=$(dig +noall +answer "$i.$1")
 			record=$(echo "$string"| awk '{ print $4 }')
 			destination=$(echo "$string"| awk '{ print $5 }')
 			echo "The subdomain $i is a $record record and points to $destination"
@@ -22,8 +17,6 @@
 		if [ "$1" != "$var" ]
 		then
 			dig +noall +answer "$var.$1"
-		else
-			dig +noall +answer "$var"
 		fi
 	done
 
