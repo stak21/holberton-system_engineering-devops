@@ -12,3 +12,4 @@ sudo ufw allow ssh
 sudo ufw allow www
 sudo ufw deny 80
 sudo ufw remove deny 80
+sudo ufw reset
