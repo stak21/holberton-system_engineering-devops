@@ -16,7 +16,10 @@
 	do
 		if [ "$1" != "$var" ]
 		then
-			dig +noall +answer "$var.$1"
+			string=$(dig +noall +answer "$var.$1")
+			record=$(echo "$string"| awk '{ print $4 }')
+			destination=$(echo "$string"| awk '{ print $5 }')
+			echo "The subdomain $var is a $record record and points to $destination"
 		fi
 	done
 
