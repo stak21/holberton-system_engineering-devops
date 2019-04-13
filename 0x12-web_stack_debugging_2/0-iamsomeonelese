@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# run the command whoami
+
+if [ "$1" ]
+then
+	sudo -H -u  "$1" bash -c whoami
+else
+	sudo -H -u "$USER" bash -c whoami
+fi
