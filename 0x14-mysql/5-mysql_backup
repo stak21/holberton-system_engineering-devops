@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Script to create a backup of all databases into a tar file
+if [[ $# -eq 0 ]] ; then
+    echo 'Requires password for mysql'
+    exit 1
+fi
+mysql -uroot -p"$1" -e "FLUSH TABLES WITH READ LOCK; SHOW MASTER
+STATUS;"
+mysqldump --all-databases --single-transaction --quick > backup.sql -uroot -p"HolbySFSQL"
+mysql -uroot -p"$1" -e "UNLOCK TABLES;"
+tar czf ./"$(date +%Y-%m-%d)".tar.gz ./backup.sql
