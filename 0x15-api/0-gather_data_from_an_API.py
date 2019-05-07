@@ -10,6 +10,9 @@ import sys
 
 todo_url = "https://jsonplaceholder.typicode.com/todos/"
 users_url = "https://jsonplaceholder.typicode.com/users/"
+completed_tasks = 0
+total_tasks = 0
+tasks = []
 if len(sys.argv) >= 2:
     employee_id = sys.argv[1]
     try:
@@ -23,9 +26,6 @@ if len(sys.argv) >= 2:
         sys.exit()
     todo_r = requests.get(todo_url)
     user = json.loads(users_r.text)
-    completed_tasks = 0
-    total_tasks = 0
-    tasks = []
     for task in json.loads(todo_r.text):
         if task['userId'] == int(employee_id):
             total_tasks += 1
@@ -39,4 +39,4 @@ if len(sys.argv) >= 2:
         )
     for task in tasks:
         if task['userId'] == int(employee_id):
-            print("     {}".format(task["title"]))
+            print("\t {}".format(task["title"]))
