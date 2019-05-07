@@ -30,10 +30,7 @@ if len(sys.argv) >= 2:
         if task['userId'] == int(employee_id):
                 user_dict[str(employee_id)].append(
                                         dict({"task": task['title'],
-                                            "completed": task['completed'],
-                                            "username": user['username']}))
-
+                                             "completed": task['completed'],
+                                              "username": user['username']}))
     with open('{}.json'.format(employee_id), mode='w') as employee_file:
         json.dump(user_dict, employee_file)
-
-
