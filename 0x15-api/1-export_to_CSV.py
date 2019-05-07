@@ -27,7 +27,7 @@ if len(sys.argv) >= 2:
         sys.exit()
     todo_r = requests.get(todo_url)
     user = json.loads(users_r.text)
-    with open('somefile.csv', mode='w') as employee_file:
+    with open('{}.csv'.format(employee_id), mode='w') as employee_file:
         for task in json.loads(todo_r.text):
             if task['userId'] == int(employee_id):
                 USER_ID = employee_id
