@@ -25,12 +25,15 @@ if len(sys.argv) >= 2:
         sys.exit()
     todo_r = requests.get(todo_url)
     user = json.loads(users_r.text)
+    user_dict["{}".format(employee_id)] = []
+    for task in json.loads(todo_r.text):
+        if task['userId'] == int(employee_id):
+                user_dict[str(employee_id)].append(
+                                        dict({"task": task['title'],
+                                            "completed": task['completed'],
+                                            "username": user['username']}))
+
     with open('{}.json'.format(employee_id), mode='w') as employee_file:
-        user_dict["{}".format(employee_id)] = []
-        for task in json.loads(todo_r.text):
-            if task['userId'] == int(employee_id):
-                    user_dict['2'].append(
-                                         dict({"task": task['title'],
-                                              "completed": task['completed'],
-                                               "username": user['username']}))
-    print(user_dict)
+        json.dump(user_dict, employee_file)
+
+
