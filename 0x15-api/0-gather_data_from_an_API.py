@@ -17,8 +17,11 @@ if len(sys.argv) >= 2:
     except ValueError:
         print("Argument requires an integer")
         sys.exit()
-    todo_r = requests.get(todo_url)
     users_r = requests.get(users_url + employee_id)
+    if users_r.status_code != 200:
+        print("User does not exist")
+        sys.exit()
+    todo_r = requests.get(todo_url)
     user = json.loads(users_r.text)
     completed_tasks = 0
     total_tasks = 0
