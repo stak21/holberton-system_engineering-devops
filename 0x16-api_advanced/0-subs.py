@@ -7,8 +7,24 @@ If invalid subreddit, return 0
 import requests
 import json
 
-r = requests.get("https://www.reddit.com/r/random.json", 
-        headers = {'User-agent': 'shoji'})
-data = r.json()
-print(type(data))
 
+def number_of_subscribers(subreddit):
+    """
+    Return the number of subscribers for a given subreddit
+    """
+    url = "https://www.reddit.com/r/{}.json".format(subreddit)
+    r = requests.get(url, headers = {'User-agent': 'shoji'},
+            allow_redirects=False)
+    data = r.json()
+    if not data["data"]["children"]:
+        return 0
+    try:
+        sub = data.get("data")
+        children = sub.get("children")
+        subreddit = children[0].get("data")
+        subscriber_count = subreddit.get("subreddit_subscribers")
+    except Exception as e:
+        print("Something went wrong\n {}".format(e))
+        return 0
+
+    return subscriber_count
