@@ -4,8 +4,8 @@ Function: Queries the Reddit API and returns the number of subscribers for a
 given subreddit
 If invalid subreddit, return 0
 """
-import requests
 import json
+import requests
 
 
 def number_of_subscribers(subreddit):
@@ -13,8 +13,8 @@ def number_of_subscribers(subreddit):
     Return the number of subscribers for a given subreddit
     """
     url = "https://www.reddit.com/r/{}.json".format(subreddit)
-    r = requests.get(url, headers = {'User-agent': 'shoji'},
-            allow_redirects=False)
+    r = requests.get(url, headers={'User-agent': 'shoji'},
+                     allow_redirects=False)
     data = r.json()
     if not data["data"]["children"]:
         return 0
