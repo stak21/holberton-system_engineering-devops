@@ -4,7 +4,6 @@ Using recursion, navigate through all the listing and return the titles of each
 listing
 if the subreddit is not found return 0
 """
-import json
 import requests
 
 
@@ -14,7 +13,8 @@ def recurse(subreddit, after={}):
     url = "https://www.reddit.com/r/{}.json".format(subreddit)
     headers = {"User-agent": 'Shoji'}
     params = {"after": after}
-    response = requests.get(url, headers=headers, params=params)
+    response = requests.get(url, headers=headers, params=params,
+                            allow_redirects=False)
     if response.status_code != 200:
         return None
     try:
@@ -34,4 +34,4 @@ def recurse(subreddit, after={}):
             return ret
     except Exception as e:
         print(e)
-        return listings
+        return None
