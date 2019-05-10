@@ -16,7 +16,7 @@ def number_of_subscribers(subreddit):
     r = requests.get(url, headers={'User-agent': 'shoji'},
                      allow_redirects=False)
     data = r.json()
-    if not data["data"]["children"]:
+    if not r.status_code == 200:
         return 0
     try:
         sub = data.get("data")
