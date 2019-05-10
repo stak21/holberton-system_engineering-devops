@@ -17,21 +17,19 @@ def recurse(subreddit, after={}):
                             allow_redirects=False)
     if response.status_code != 200:
         return None
+    if after is None:
+        return listings
     try:
         parent = response.json()
         children = parent['data']['children']
         for child in children:
             listings.append(child['data']['title'])
 
-        if after is None:
-            return listings
-        else:
-            after = parent['data']['after']
+        after = parent['data']['after']
 
-            ret = recurse(subreddit, after)
-            if listings:
-                ret.extend(listings)
-            return ret
+        ret = recurse(subreddit, after)
+        if listings:
+            ret.extend(listings)
+        return ret
     except Exception as e:
-        print(e)
         return None
