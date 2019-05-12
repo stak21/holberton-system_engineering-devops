@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 #Script to configure nginx to run on port 80
-sudo sed -i '/default_server;/c\listen 81 default_server;' /etc/nginx/sites-available/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo service nginx restart
