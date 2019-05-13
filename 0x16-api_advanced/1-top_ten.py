@@ -3,7 +3,6 @@
 Function: Queries the Reddit API and print the titles of the top 10 hot posts
 If invalid subreddit, return 0
 """
-import json
 import requests
 
 
