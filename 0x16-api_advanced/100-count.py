@@ -38,8 +38,8 @@ def count_words(subreddit, word_list, after={}):
             for k in counts.keys():
                 counts[k] = counts[k] + ret_count[k]
             if after == {}:
-                for name in word_list:
-                    print("{}: {}".format(name, counts[name]))
+                for key in sorted(counts, key=lambda k: (-counts[k], k)):
+                    print("{}: {}".format(key, counts[key]))
         return counts
 
     except Exception as e:
