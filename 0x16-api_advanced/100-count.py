@@ -19,9 +19,9 @@ def count_words(subreddit, word_list, after={}):
         print("")
         return None
     if after is None:
-        return {} 
+        return {}
     try:
-        counts = { k: 0 for k in word_list }
+        counts = {k: 0 for k in word_list}
         parent = response.json()
         children = parent['data']['children']
         for child in children:
@@ -36,7 +36,8 @@ def count_words(subreddit, word_list, after={}):
                 counts[k] = counts[k] + ret_count[k]
         if after == {}:
             for key in sorted(counts, key=lambda k: (-counts[k], k)):
-                print("{}: {}".format(key, counts[key]))
+                if counts[key] > 0:
+                    print("{}: {}".format(key, counts[key]))
 
         return counts
 
