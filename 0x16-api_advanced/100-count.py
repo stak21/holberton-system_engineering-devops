@@ -26,8 +26,9 @@ def count_words(subreddit, word_list, after={}):
         children = parent['data']['children']
         for child in children:
             for k, v in counts.items():
-                reg = re.compile(r'\b{}\b'.format(k))
-                count = re.findall(reg, child['data']['title'])
+                reg_key = k.upper()
+                reg = re.compile(r'\b{}\b'.format(reg_key))
+                count = re.findall(reg, child['data']['title'].upper())
                 counts[k] = counts[k] + len(count)
         after_copy = parent['data']['after']
         ret_count = count_words(subreddit, word_list, after_copy)
