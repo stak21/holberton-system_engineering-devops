@@ -26,20 +26,18 @@ def count_words(subreddit, word_list, after={}):
         children = parent['data']['children']
         for child in children:
             for k, v in counts.items():
-                count = [match.start() for match in re.finditer(k,
-                    child['data']['title'])]
+                reg = re.compile(r'\b{}\b'.format(k))
+                count = re.findall(reg, child['data']['title'])
                 counts[k] = counts[k] + len(count)
-
-
         after_copy = parent['data']['after']
-
         ret_count = count_words(subreddit, word_list, after_copy)
         if ret_count:
             for k in counts.keys():
                 counts[k] = counts[k] + ret_count[k]
-            if after == {}:
-                for key in sorted(counts, key=lambda k: (-counts[k], k)):
-                    print("{}: {}".format(key, counts[key]))
+        if after == {}:
+            for key in sorted(counts, key=lambda k: (-counts[k], k)):
+                print("{}: {}".format(key, counts[key]))
+
         return counts
 
     except Exception as e:
