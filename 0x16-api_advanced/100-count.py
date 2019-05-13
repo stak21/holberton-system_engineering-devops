@@ -21,14 +21,17 @@ def count_words(subreddit, word_list, after={}):
     if after is None:
         return {}
     try:
-        counts = {k.lower(): 0 for k in word_list}
+        counts = {}
         parent = response.json()
         children = parent['data']['children']
         for child in children:
-            for k, v in counts.items():
-                reg = re.compile(r'\b{}\b'.format(k))
+            for k in word_list:
+                reg = re.compile(r'\b{}\b'.format(k.lower()))
                 count = re.findall(reg, child['data']['title'].lower())
-                counts[k] = counts[k] + len(count)
+                try:
+                    counts[k] = counts[k] + len(count)
+                except:
+                    counts[k] = len(count)
         after_copy = parent['data']['after']
         ret_count = count_words(subreddit, word_list, after_copy)
         if ret_count:
