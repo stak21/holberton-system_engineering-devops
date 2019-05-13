@@ -8,9 +8,9 @@ import re
 import requests
 
 
-def count_words(subreddit, word_list, after={}):
+def count_words(subreddit, word_list, after={}, count={}):
     """ prints the number of occurences of a given keywords """
-    url = "https://www.reddit.com/r/{}.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {"User-agent": 'Shoji'}
     params = {"after": after}
     response = requests.get(url, headers=headers, params=params,
@@ -19,30 +19,26 @@ def count_words(subreddit, word_list, after={}):
         print("")
         return None
     if after is None:
-        return {}
+        return count
     try:
-        counts = {}
         parent = response.json()
         children = parent['data']['children']
         for child in children:
-            for k in word_list:
-                reg = re.compile(r'\b{}\b'.format(k.lower()))
-                count = re.findall(reg, child['data']['title'].lower())
-                try:
-                    counts[k] = counts[k] + len(count)
-                except:
-                    counts[k] = len(count)
+            for word in child['data']['title'].split():
+                for k in word_list:
+                    if k not in count.keys():
+                        count[k] = 0
+                    if word.upper() == k.upper():
+                        count[k] += 1
         after_copy = parent['data']['after']
-        ret_count = count_words(subreddit, word_list, after_copy)
-        if ret_count:
-            for k in counts.keys():
-                counts[k] = counts[k] + ret_count[k]
+        count = count_words(subreddit, word_list, after_copy, count)
         if after == {}:
-            for key in sorted(counts, key=lambda k: (-counts[k], k)):
-                if counts[key] > 0:
-                    print("{}: {}".format(key, counts[key]))
+            for key in [v[0] for v in
+                        sorted(count.items(), key=lambda k: (-k[1], k[0]))]:
+                if count[key] > 0:
+                    print("{}: {}".format(key, count[key]))
 
-        return counts
+        return count
 
     except Exception as e:
         print("failed {}".format(e))
