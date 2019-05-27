@@ -14,13 +14,13 @@ __Timeline:__
         3:40 pm - Gave a report of the current situation, the secondary server had crashed and all requests were 
         being sent to the primary server
         4:00 pm - The cause appeared to happen because Sammie our SRE on the previous shift had left a mug of coffee 
-        in the server room where the servers were being run There was a small disturbance and the coffee had appeared 
+        in the server room where the servers were being run. There was a small disturbance and the coffee had appeared 
         to spill over the computer that was running our primary server.
         4:05 pm - We had an extra computer where we started up the server using our puppet automation deployment
         4:10 pm - While we waited for the server to run, we got a bag of rice and dumped the laptop in the rice
         4:30 pm - The server is up and running, and appears to be working properly. Doing final tests to make sure 
         everything is good
-        5:00 pm - We updated the users that everything is running laptop
+        5:00 pm - We updated the users that everything is running
 __Root cause:__
 
         The on the day 4/20/2019, our SRE on call Sammie Left some coffee on the desk that had a computer that was
