@@ -1,4 +1,4 @@
-# comment - serach and replace limit cap
+#comment - serach and replace limit cap
 exec { 'sed':
-  command => -i 's/15/15000/g' /etc/default/nginx",
-}
+  command => "/bin/sed -i 's/15/15000/g' /etc/default/nginx && /usr/sbin/service nginx restart",
+  }
