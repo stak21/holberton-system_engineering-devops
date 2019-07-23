@@ -4,7 +4,7 @@
 
 This project in the low_level_programming series is about:
 
-*Learn to use regex with Ruby
+*  Learn to use regex with Ruby
 
 ---
 File|Task

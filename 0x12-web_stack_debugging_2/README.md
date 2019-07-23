@@ -4,7 +4,7 @@
 
 This project in the low_level_programming series is about:
 
-*Debug #2
+*  Debug #2
 
 ---
 File|Task

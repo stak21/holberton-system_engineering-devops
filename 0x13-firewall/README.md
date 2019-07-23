@@ -4,7 +4,7 @@
 
 This project in the low_level_programming series is about:
 
-*Install and configure the ubuntu Firewall to deny all ports except a selected few
+*  Install and configure the ubuntu Firewall to deny all ports except a selected few
 
 ---
 File|Task

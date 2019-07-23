@@ -4,13 +4,13 @@
 
 This project in the low_level_programming series is about:
 
-*General
+*  General
 
-*What is HTTPS SSL 2 main roles
+*  What is HTTPS SSL 2 main roles
 
-*What is the purpose encrypting traffic
+*  What is the purpose encrypting traffic
 
-*What SSL termination means
+*  What SSL termination means
 
 ---
 File|Task

@@ -4,7 +4,7 @@
 
 This project in the low_level_programming series is about:
 
-*Debugging webstack project
+*  Debugging webstack project
 
 ---
 File|Task

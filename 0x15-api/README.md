@@ -4,31 +4,31 @@
 
 This project in the low_level_programming series is about:
 
-*General
+*  General
 
-*What Bash scripting should not be used for
+*  What Bash scripting should not be used for
 
-*What is an API
+*  What is an API
 
-*What is a REST API
+*  What is a REST API
 
-*What are microservices
+*  What are microservices
 
-*What is the CSV format
+*  What is the CSV format
 
-*What is the JSON format
+*  What is the JSON format
 
-*Pythonic Package and module name style
+*  Pythonic Package and module name style
 
-*Pythonic Class name style
+*  Pythonic Class name style
 
-*Pythonic Variable name style
+*  Pythonic Variable name style
 
-*Pythonic Function name style
+*  Pythonic Function name style
 
-*Pythonic Constant name style
+*  Pythonic Constant name style
 
-*Significance of CapWords or CamelCase in Python
+*  Significance of CapWords or CamelCase in Python
 
 ---
 File|Task
